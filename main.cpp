@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <fstream>
+#include <string>
 #include "figurageometrica.h"
 #include "interpretador.h"
 #include "putbox.h"
@@ -11,27 +16,27 @@
 
 
  int main(){
-  Sculptor *Teste;
-
+  // Sculptor *Teste;
+  Sculptor *Cereja;
   Interpretador Analisador;
 
   std::vector<FiguraGeometrica*> figs;
 
-  figs = Analisador.analise("teste.txt");
+  figs = Analisador.analise("cereja.txt");
 
-  Teste = new Sculptor(Analisador.getDimx(), Analisador.getDimy(), Analisador.getDimz());
+  Cereja = new Sculptor(Analisador.getDimx(), Analisador.getDimy(), Analisador.getDimz());
 
   for(size_t i = 0; i < figs.size(); i++){
     std::cout << "draw\n";
 
-    figs[i]->draw(*Teste);
+    figs[i]->draw(*Cereja);
   }
 
-  Teste->writeOFF((char *)"teste.off");
+  Cereja->writeOFF((char *)"cereja.off");
 
   for(size_t i = 0; i < figs.size(); i++){
     delete figs[i];
   }
-  delete Teste; 
+  delete Cereja; 
   return 0;
 }
