@@ -1,17 +1,17 @@
-#include "putvoxel.h"
-#include <math.h>
+#ifndef PUTVOXEL
+#define PUTVOXEL
+#include "sculptor.h"
+#include "figurageometrica.h"
 
-PutVoxel:: PutVoxel(int x, int y, int z, float r, float g, float b, float a){
-    this -> x = x;
-    this -> y = y;
-    this -> z = z;
-    this -> r = r;
-    this -> g = g;
-    this -> b = b;
-    this -> a = a;
-  }
+class PutVoxel : public FiguraGeometrica{
+  private:
+    int x;
+    int y;
+    int z;
+  
+  public:
+    PutVoxel (int x,int y,int z,float r,float g, float b, float a);
+    void draw (Sculptor &s);
+  };
 
-   void PutVoxel::draw (Sculptor &s){
-      s.setColor(r, g, b, a);//seleciona as cores
-      s.putVoxel(x,y,z);
-  }
+#endif
